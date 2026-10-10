@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recepcion - SmileTrack</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>SmileTrack &mdash; Recepcion</h1>
+    <button onclick="cerrarSesion()">Cerrar sesion</button>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="tarjeta">
+      <h2>Registrar paciente</h2>
+      <form id="formPaciente">
+        <div class="grid-2">
+          <div>
+            <label for="pNombre">Nombre completo</label>
+            <input type="text" id="pNombre" required />
+          </div>
+          <div>
+            <label for="pTelefono">Telefono</label>
+            <input type="text" id="pTelefono" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label for="pFechaNacimiento">Fecha de nacimiento</label>
+            <input type="date" id="pFechaNacimiento" />
+          </div>
+          <div>
+            <label for="pAlergias">Alergias</label>
+            <input type="text" id="pAlergias" placeholder="Ninguna conocida" />
+          </div>
+        </div>
+        <button type="submit" class="btn-primario">Guardar paciente</button>
+        <div id="mensajePaciente"></div>
+      </form>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Agendar cita</h2>
+      <form id="formCita">
+        <div class="grid-2">
+          <div>
+            <label for="cPaciente">Paciente</label>
+            <select id="cPaciente" required></select>
+          </div>
+          <div>
+            <label for="cOdontologo">Odontologo</label>
+            <select id="cOdontologo" required></select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label for="cFecha">Fecha</label>
+            <input type="date" id="cFecha" required />
+          </div>
+          <div>
+            <label for="cHora">Hora</label>
+            <input type="time" id="cHora" required />
+          </div>
+        </div>
+        <label for="cTratamiento">Tratamiento (opcional)</label>
+        <input type="text" id="cTratamiento" placeholder="Ej. Limpieza dental" />
+        <label for="cMotivo">Motivo (opcional)</label>
+        <input type="text" id="cMotivo" />
+        <button type="submit" class="btn-primario">Guardar cita</button>
+        <div id="mensajeCita"></div>
+      </form>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Citas registradas</h2>
+      <div class="barra-busqueda">
+        <input type="date" id="filtroFecha" />
+        <button class="btn-primario" style="margin:0" onclick="cargarCitas(1)">Filtrar</button>
+        <button class="btn-peligro" onclick="document.getElementById('filtroFecha').value=''; cargarCitas(1)">Limpiar</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Paciente</th><th>Odontologo</th><th>Fecha</th><th>Hora</th><th>Estado</th><th>Accion</th></tr>
+        </thead>
+        <tbody id="tablaCitas"></tbody>
+      </table>
+      <div class="pill-paginacion" id="paginacionCitas"></div>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/recepcion.js"></script>
+</body>
+</html>

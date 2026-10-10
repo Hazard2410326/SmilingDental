@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Odontologo - SmileTrack</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>SmileTrack &mdash; Mi agenda</h1>
+    <button onclick="cerrarSesion()">Cerrar sesion</button>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="tarjeta">
+      <h2>Mis citas</h2>
+      <div class="barra-busqueda">
+        <input type="date" id="filtroFecha" />
+        <button class="btn-primario" style="margin:0" onclick="cargarMisCitas()">Filtrar</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Paciente</th><th>Fecha</th><th>Hora</th><th>Estado</th><th>Historia clinica</th></tr>
+        </thead>
+        <tbody id="tablaMisCitas"></tbody>
+      </table>
+    </div>
+
+    <div class="tarjeta" id="tarjetaHistoria" style="display:none">
+      <h2>Registrar historia clinica</h2>
+      <p id="pacienteSeleccionadoTexto"></p>
+      <form id="formHistoria">
+        <input type="hidden" id="hPacienteId" />
+        <input type="hidden" id="hCitaId" />
+        <label for="hDiagnostico">Diagnostico</label>
+        <input type="text" id="hDiagnostico" required />
+        <label for="hTratamiento">Tratamiento realizado</label>
+        <input type="text" id="hTratamiento" />
+        <label for="hNotas">Notas</label>
+        <textarea id="hNotas" rows="3"></textarea>
+        <button type="submit" class="btn-primario">Guardar en la historia clinica</button>
+        <div id="mensajeHistoria"></div>
+      </form>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Ver historial de un paciente</h2>
+      <div class="barra-busqueda">
+        <select id="selectPacienteHistorial"></select>
+        <button class="btn-primario" style="margin:0" onclick="verHistorialPaciente()">Ver historial</button>
+      </div>
+      <div id="listaHistorial"></div>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/odontologo.js"></script>
+</body>
+</html>

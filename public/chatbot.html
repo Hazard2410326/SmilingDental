@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chatbot - SMILING DENTAL</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>SMILING DENTAL</h1>
+    <a href="/index.html" style="color:white;font-size:0.85rem;">Soy personal del consultorio</a>
+  </header>
+
+  <div class="contenedor">
+    <div class="tarjeta">
+      <h2>¿En que te podemos ayudar?</h2>
+      <p>Escribe tu pregunta abajo. Si no la reconocemos, un miembro del consultorio te va a escribir.</p>
+    </div>
+  </div>
+
+  <div class="chatbot-flotante">
+    <div class="chatbot-cabecera">Asistente SMILING DENTAL</div>
+    <div class="chatbot-mensajes" id="mensajes">
+      <div class="chatbot-mensaje-bot">Hola, soy el asistente de SMILING DENTAL. ¿En que te puedo ayudar? (horarios, precios, etc.)</div>
+    </div>
+    <form class="chatbot-form" id="formChat">
+      <input type="text" id="inputMensaje" placeholder="Escribe tu pregunta..." required />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>

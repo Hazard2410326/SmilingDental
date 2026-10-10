@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Administrador - SmileTrack</title>
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>SmileTrack &mdash; Administrador</h1>
+    <button onclick="cerrarSesion()">Cerrar sesion</button>
+  </header>
+
+  <div class="contenedor">
+
+    <div class="tarjeta">
+      <h2>Reporte de citas por odontologo</h2>
+      <div class="barra-busqueda">
+        <input type="date" id="repDesde" />
+        <input type="date" id="repHasta" />
+        <button class="btn-primario" style="margin:0" onclick="cargarReporte()">Generar</button>
+      </div>
+      <table>
+        <thead><tr><th>Odontologo</th><th>Pendientes</th><th>Atendidas</th><th>Canceladas</th><th>Total</th></tr></thead>
+        <tbody id="tablaReporte"></tbody>
+      </table>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Preguntas frecuentes del chatbot</h2>
+      <form id="formFaq">
+        <label for="fPregunta">Pregunta</label>
+        <input type="text" id="fPregunta" required />
+        <label for="fPalabras">Palabras clave (separadas por coma)</label>
+        <input type="text" id="fPalabras" placeholder="horario,hora,atencion" required />
+        <label for="fRespuesta">Respuesta del chatbot</label>
+        <textarea id="fRespuesta" rows="2" required></textarea>
+        <button type="submit" class="btn-primario">Guardar pregunta</button>
+        <div id="mensajeFaq"></div>
+      </form>
+
+      <table style="margin-top:20px">
+        <thead><tr><th>Pregunta</th><th>Palabras clave</th><th>Respuesta</th></tr></thead>
+        <tbody id="tablaFaq"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
